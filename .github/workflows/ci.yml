@@ -1,5 +1,4 @@
 [file name]: .github/workflows/ci.yml
-[file content begin]
 name: CI/CD Pipeline
 
 on:
