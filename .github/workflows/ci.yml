@@ -127,4 +127,3 @@ jobs:
     - name: Test pipeline
       run: |
         python scripts/main_pipeline.py basic --remove_outliers false || echo "Pipeline test completed"
-[file content end]
