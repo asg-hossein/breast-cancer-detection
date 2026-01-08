@@ -1,0 +1,26 @@
+# Core ML & Data Processing
+scikit-learn
+pandas
+numpy
+scipy
+
+# Visualization
+matplotlib
+seaborn
+
+# Fuzzy Logic
+scikit-fuzzy
+
+# API
+fastapi
+uvicorn[standard]
+pydantic
+
+# Utilities
+joblib
+python-dotenv
+
+# Testing
+pytest
+requests
+httpx
