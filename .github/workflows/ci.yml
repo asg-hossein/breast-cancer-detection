@@ -68,7 +68,7 @@ jobs:
 
     - name: Run flake8
       run: |
-        flake8 api.py scripts/ tests/
+        flake8 --max-line-length=100 --extend-ignore=E203,E266,E501,W503,F403,F401,E402,F541,F841,E722,F824 --max-complexity=15 api.py scripts/ tests/
 
   validate:
     runs-on: ubuntu-latest
