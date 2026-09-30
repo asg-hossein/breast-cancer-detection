@@ -48,7 +48,7 @@ def load_resources():
         try:
             model_name = model_file.replace("_model.pkl", "")
             MODELS[model_name] = joblib.load(os.path.join(MODELS_DIR, model_file))
-        except:
+        except Exception:
             continue
 
     if not MODELS:
