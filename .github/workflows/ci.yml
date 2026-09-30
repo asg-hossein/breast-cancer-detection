@@ -15,10 +15,10 @@ jobs:
         python-version: ['3.9', '3.10', '3.11']
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -37,20 +37,20 @@ jobs:
 
     - name: Run unit tests
       run: |
-        python -m pytest tests/test_unit.py --cov=scripts --cov-report=xml || echo "Unit tests completed"
+        python -m pytest tests/test_unit.py -v
 
     - name: Run API tests
       run: |
-        python -m pytest tests/test_api.py || echo "API tests completed"
+        python -m pytest tests/test_api.py -v
 
   lint:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
@@ -60,65 +60,47 @@ jobs:
 
     - name: Check formatting
       run: |
-        black --check . || echo "Format check completed"
+        black --check api.py scripts/ tests/
 
     - name: Check imports
       run: |
-        isort --check-only . || echo "Import check completed"
+        isort --check-only api.py scripts/ tests/
 
     - name: Run flake8
       run: |
-        flake8 . || echo "Lint check completed"
+        flake8 api.py scripts/ tests/
 
   validate:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Validate structure
       run: |
-        [ -f api.py ] || echo "api.py not found"
-        [ -f requirements.txt ] || echo "requirements.txt not found"
-        [ -f README.md ] || echo "README.md not found"
-        [ -f .gitignore ] || echo ".gitignore not found"
+        [ -f api.py ] || (echo "api.py not found" && exit 1)
+        [ -f requirements.txt ] || (echo "requirements.txt not found" && exit 1)
+        [ -f README.md ] || (echo "README.md not found" && exit 1)
+        [ -f .gitignore ] || (echo ".gitignore not found" && exit 1)
 
-        [ -d tests ] || echo "tests directory not found"
+        [ -d tests ] || (echo "tests directory not found" && exit 1)
+        [ -d scripts ] || (echo "scripts directory not found" && exit 1)
 
-        [ -f config.py ] || echo "config.py not found"
-        [ -f data_processor.py ] || echo "data_processor.py not found"
-        [ -f model_trainer.py ] || echo "model_trainer.py not found"
-        [ -f evaluator.py ] || echo "evaluator.py not found"
-        [ -f utils.py ] || echo "utils.py not found"
-        [ -f main_pipeline.py ] || echo "main_pipeline.py not found"
+        [ -f scripts/config.py ] || (echo "config.py not found" && exit 1)
+        [ -f scripts/data_processor.py ] || (echo "data_processor.py not found" && exit 1)
+        [ -f scripts/model_trainer.py ] || (echo "model_trainer.py not found" && exit 1)
+        [ -f scripts/evaluator.py ] || (echo "evaluator.py not found" && exit 1)
+        [ -f scripts/utils.py ] || (echo "utils.py not found" && exit 1)
+        [ -f scripts/main_pipeline.py ] || (echo "main_pipeline.py not found" && exit 1)
 
-        [ -f tests/test_unit.py ] || echo "test_unit.py not found"
-        [ -f tests/test_api.py ] || echo "test_api.py not found"
+        [ -f tests/test_unit.py ] || (echo "test_unit.py not found" && exit 1)
+        [ -f tests/test_api.py ] || (echo "test_api.py not found" && exit 1)
 
         echo "Structure validation completed"
 
     - name: Check file contents
       run: |
-        [ -s README.md ] || echo "README.md is empty"
-        [ -s .gitignore ] || echo ".gitignore is empty"
-        [ -s requirements.txt ] || echo "requirements.txt is empty"
-
-    - name: Test imports
-      run: |
-        python -c "
-        packages = ['fastapi', 'pydantic', 'sklearn', 'pandas', 'numpy', 'joblib']
-        failed = []
-        for package in packages:
-            try:
-                __import__(package)
-                print(package + ' OK')
-            except ImportError:
-                failed.append(package)
-        if failed:
-            print('Missing packages:', failed)
-        print('Import check completed')
-        "
-
-    - name: Test pipeline
-      run: |
-        python main_pipeline.py basic --remove_outliers false || echo "Pipeline test completed"
+        [ -s README.md ] || (echo "README.md is empty" && exit 1)
+        [ -s .gitignore ] || (echo ".gitignore is empty" && exit 1)
+        [ -s requirements.txt ] || (echo "requirements.txt is empty" && exit 1)
+        echo "File contents validation completed"
