@@ -192,7 +192,7 @@ class ModelEvaluator:
             ].copy()
 
             if len(valid_models) == 0:
-                print("⚠️ No valid models found")
+                print("No valid models found")
                 return None
 
             def to_float(x):

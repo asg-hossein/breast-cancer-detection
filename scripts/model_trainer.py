@@ -93,7 +93,7 @@ class ModelTrainer:
 
     def _find_best_model(self):
         if not self.results:
-            print(" No results available for comparison")
+            print("No results available for comparison")
             return None
 
         try:

@@ -24,12 +24,12 @@ def display_interactive_menu():
     print("=" * 60)
 
     print("\nPlease select execution mode:")
-    print("1️ Basic        - Basic data processing")
-    print("2️ Preprocessed - With full preprocessing (PCA, outlier removal)")
-    print("3️ Fuzzy        - With fuzzy enhancement and clustering")
-    print("4️ Full         - Complete analysis (all stages)")
-    print("5️ All          - Run all modes sequentially")
-    print("0️ Exit         - Exit program")
+    print("1 Basic        - Basic data processing")
+    print("2 Preprocessed - With full preprocessing (PCA, outlier removal)")
+    print("3 Fuzzy        - With fuzzy enhancement and clustering")
+    print("4 Full         - Complete analysis (all stages)")
+    print("5 All          - Run all modes sequentially")
+    print("0 Exit         - Exit program")
     print("=" * 60)
 
     while True:
@@ -339,8 +339,8 @@ def main():
     print("=" * 60)
 
     print("\nFor reuse, choose one of the following methods:")
-    print("   • python main_pipeline.py                    (interactive menu)")
-    print("   • python main_pipeline.py [mode] --help      (command line help)")
+    print("   - python main_pipeline.py                    (interactive menu)")
+    print("   - python main_pipeline.py [mode] --help      (command line help)")
     print("=" * 60)
 
 

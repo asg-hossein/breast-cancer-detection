@@ -36,7 +36,7 @@ SCALER = None
 
 
 def load_resources():
-    global MODELS, SCALER
+    global SCALER
 
     os.makedirs(MODELS_DIR, exist_ok=True)
 

@@ -148,12 +148,12 @@ def main():
         try:
             if test():
                 results.append(True)
-                print("  → PASS")
+                print("  PASS")
             else:
                 results.append(False)
-                print("  → FAIL")
+                print("  FAIL")
         except Exception as e:
-            print(f"  → ERROR: {e}")
+            print(f"  ERROR: {e}")
             results.append(False)
 
         print("  " + "-" * 40)

@@ -115,7 +115,7 @@ class DataVisualizer:
             if save:
                 filepath = os.path.join(PLOTS_DIR, "feature_histograms.png")
                 plt.savefig(filepath, bbox_inches="tight", dpi=300)
-                print(f"📊 Feature histograms saved: {filepath}")
+                print(f"Feature histograms saved: {filepath}")
 
             plt.show()
             plt.close()

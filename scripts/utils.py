@@ -83,7 +83,7 @@ def calculate_metrics(y_true, y_pred, y_prob=None):
                 metrics["fpr"] = fpr
                 metrics["tpr"] = tpr
             except ValueError as e:
-                print(f" Error calculating ROC-AUC: {e}")
+                print(f"Error calculating ROC-AUC: {e}")
                 metrics["roc_auc"] = None
                 metrics["fpr"] = None
                 metrics["tpr"] = None

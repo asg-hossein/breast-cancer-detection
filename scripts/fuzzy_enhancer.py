@@ -83,7 +83,7 @@ class FuzzyEnhancer:
                 raise RuntimeError(f"Fuzzy C-Means execution error: {str(e)[:100]}")
 
     def _apply_pca_fallback(self, X):
-        print("🔧 Running PCA to generate alternative features...")
+        print("Running PCA to generate alternative features...")
 
         try:
             pca = PCA(n_components=self.n_clusters, random_state=42)
