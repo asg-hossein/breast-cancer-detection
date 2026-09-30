@@ -1,6 +1,7 @@
 """
 Central configuration for Breast Cancer Classification project
 """
+
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -29,20 +30,8 @@ FUZZY_ERROR = 0.005
 FUZZY_MAXITER = 1000
 
 MODELS_CONFIG = {
-    "Decision Tree": {
-        "class": "DecisionTreeClassifier",
-        "params": {"random_state": RANDOM_STATE}
-    },
-    "Naive Bayes": {
-        "class": "GaussianNB",
-        "params": {}
-    },
-    "Perceptron": {
-        "class": "Perceptron",
-        "params": {"random_state": RANDOM_STATE}
-    },
-    "KNN": {
-        "class": "KNeighborsClassifier",
-        "params": {}
-    }
+    "Decision Tree": {"class": "DecisionTreeClassifier", "params": {"random_state": RANDOM_STATE}},
+    "Naive Bayes": {"class": "GaussianNB", "params": {}},
+    "Perceptron": {"class": "Perceptron", "params": {"random_state": RANDOM_STATE}},
+    "KNN": {"class": "KNeighborsClassifier", "params": {}},
 }

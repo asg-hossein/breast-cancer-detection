@@ -1,11 +1,10 @@
-# Breast Cancer Detection - ML Classification
+# Breast Cancer Detection - Machine Learning Classification
 
-Machine learning pipeline for breast cancer classification with multiple models and API.
+Breast cancer classification project with multiple models and API.
 
 ## Quick Start
 
 ```bash
-# Clone and install
 git clone <repository-url>
 cd breast-cancer-detection
 pip install -r requirements.txt
@@ -13,7 +12,7 @@ pip install -r requirements.txt
 # Run pipeline
 python scripts/main_pipeline.py
 
-# Start API
+# Run API
 python api.py
 
 # Run tests
@@ -23,49 +22,41 @@ Project Structure
 text
 
 breast-cancer-detection/
-- api.py                    # FastAPI application
-- requirements.txt          # Dependencies
-- README.md                 # Documentation
-- .gitignore               # Git ignore file
-- data/data.csv            # Dataset
-- tests/                   # Test files
- - test_api.py
- - test_unit.py
-- scripts/                 # Main code
- - __init__.py
- - config.py
- - data_processor.py
- - evaluator.py
- - fuzzy_enhancer.py
- - main_pipeline - esm miporsad.py
- - main_pipeline.py
- - model_trainer.py
- - utils.py
- - visualizer.py
-- .github/workflows/ci.yml # CI/CD
+├── api.py                    # FastAPI
+├── requirements.txt          # Dependencies
+├── README.md                 # Documentation
+├── .gitignore
+├── data/data.csv            # Dataset
+├── tests/                   # Tests
+│   ├── test_api.py
+│   └── test_unit.py
+├── scripts/                 # Main code
+│   ├── __init__.py
+│   ├── config.py
+│   ├── data_processor.py
+│   ├── evaluator.py
+│   ├── fuzzy_enhancer.py
+│   ├── main_pipeline.py
+│   ├── model_trainer.py
+│   ├── utils.py
+│   └── visualizer.py
+└── .github/workflows/ci.yml
 
 Main Components
-1. Data Processing (scripts/data_processor.py)
 
-    Loads and cleans breast cancer dataset
+Data Processing (scripts/data_processor.py)
+
+    Loads and cleans dataset
 
     Handles missing values and outliers
 
-    Scales features and applies PCA
+    Scaling and PCA
 
-2. Model Training (scripts/model_trainer.py)
+Model Training (scripts/model_trainer.py)
 
-    Trains 4 classifiers:
+    Trains 4 models: Decision Tree, Naive Bayes, Perceptron, KNN
 
-        Decision Tree
-
-        Naive Bayes
-
-        Perceptron
-
-        K-Nearest Neighbors
-
-3. Fuzzy Enhancement (scripts/fuzzy_enhancer.py)
+Fuzzy Enhancement (scripts/fuzzy_enhancer.py)
 
     Fuzzy C-Means clustering
 
@@ -73,53 +64,51 @@ Main Components
 
     Model performance improvement
 
-4. Evaluation (scripts/evaluator.py)
+Evaluation (scripts/evaluator.py)
 
     Calculates accuracy, precision, recall, F1
 
-    Generates confusion matrices
+    Confusion matrices
 
-    Compares model performance
+    Model comparison
 
-5. REST API (api.py)
+API (api.py)
 
-    FastAPI web service
+    FastAPI
 
     Endpoints: /predict, /health, /models
 
-    Real-time predictions
+    Real-time prediction
 
 API Usage
 bash
 
-# Start server
 python api.py
 
-# Access documentation
+# Documentation
 # http://localhost:8000/docs
 
-# Example prediction
+# Example
 curl -X POST "http://localhost:8000/predict" \
   -H "Content-Type: application/json" \
   -d '{"features": [/* 30 features */]}'
 
 Pipeline Modes
+bash
 
-Run with: python scripts/main_pipeline.py <mode>
+python scripts/main_pipeline.py <mode>
 
-    basic - Simple processing
+    basic — simple processing
 
-    preprocessed - Full preprocessing
+    preprocessed — full preprocessing
 
-    fuzzy - With fuzzy enhancement
+    fuzzy — with fuzzy enhancement
 
-    full - Complete analysis
+    full — complete analysis
 
-    all - Run all modes
+    all — all modes
 
 Dependencies
-
-Main packages:
 
     scikit-learn, pandas, numpy
 
@@ -131,7 +120,7 @@ Main packages:
 
     pytest
 
-See requirements.txt for complete list.
+Full list in requirements.txt.
 Dataset
 
 Wisconsin Breast Cancer Dataset:
@@ -148,7 +137,7 @@ Automated testing with GitHub Actions:
 
     Unit and API tests
 
-    Code linting (black, isort, flake8)
+    Linting (black, isort, flake8)
 
     Structure validation
 

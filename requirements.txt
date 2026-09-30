@@ -1,26 +1,32 @@
 # Core ML & Data Processing
-scikit-learn
-pandas
-numpy
-scipy
+scikit-learn==1.7.2
+pandas==2.3.3
+numpy==2.2.6
+scipy==1.15.3
 
 # Visualization
-matplotlib
-seaborn
+matplotlib==3.10.9
+seaborn==0.13.2
 
 # Fuzzy Logic
-scikit-fuzzy
+scikit-fuzzy==0.5.0
 
 # API
-fastapi
-uvicorn[standard]
-pydantic
+fastapi==0.141.1
+uvicorn[standard]==0.54.0
+pydantic==2.13.5
 
 # Utilities
-joblib
-python-dotenv
+joblib==1.6.0
+python-dotenv==1.2.3
 
 # Testing
-pytest
-requests
-httpx
+pytest==9.1.1
+requests==2.34.2
+httpx==0.28.1
+
+# Code Quality
+black==26.5.1
+isort==9.0.2
+flake8==7.4.1
+pre-commit==4.6.2
