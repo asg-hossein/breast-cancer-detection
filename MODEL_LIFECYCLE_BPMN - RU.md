@@ -43,6 +43,7 @@ flowchart TD
     Archive -->|Нет| Production
     Archive -->|Да| ArchiveModel[Архивация модели]
     ArchiveModel --> End([Конец: Модель заархивирована])
+```
 
 Этапы
 1. Бизнес-требования
