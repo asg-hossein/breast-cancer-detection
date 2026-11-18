@@ -1,4 +1,4 @@
-# Automated Model Retraining BPMN Diagram (HW 3)
+# Automated Model Retraining BPMN Diagram
 
 ## Process Description
 This diagram illustrates the automated retraining and model replacement lifecycle for the breast cancer classification model in production, including trigger events, training steps, and stopping criteria.
